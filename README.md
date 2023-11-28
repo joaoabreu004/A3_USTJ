@@ -10,11 +10,11 @@
 
 ⚛️ NOME E RA ALUNOS 
 
-Ana Carolina Martins - RA 823214726
-João Vitor Benjamin  - RA 823133703 
-Isaías de Lima Gomes - RA 823151518
-Nathália de Almeida Donato - RA 823118299
-Paulo Henrique Varga da Silva - RA 823142340
-Jhefferson Vergara Santos - RA 823148248
-João Vitor de Abreu Sousa - RA 823160525
+- Ana Carolina Martins - RA 823214726
+- Paulo Henrique Varga da Silva - RA 823142340
+- Isaías de Lima Gomes - RA 823151518
+- João Vitor Benjamin  - RA 823133703 
+- Nathália de Almeida Donato - RA 823118299
+- Jhefferson Vergara Santos - RA 823148248
+- João Vitor de Abreu Sousa - RA 823160525
 
