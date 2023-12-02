@@ -18,7 +18,7 @@ public class DB {
     
     private void openConnection(String filename) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/jvabr/SQLite/"+filename);
+            connection = DriverManager.getConnection("jdbc:sqlite:C:/Users/jvabr/Downloads/PSC20232-A3-main/ProjetoA3/"+filename);
             statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30 sec.
         } catch (SQLException ex) {
