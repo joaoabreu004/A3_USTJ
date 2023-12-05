@@ -10,7 +10,7 @@
 
 ⚛️ NOME E RA ALUNOS 
 
-*  Ana Carolinna Martins - RA 823214726
+*  Anna Carolina Martins - RA 823214726
 *  Paulo Henrique Varga da Silva - RA 823142340
 *  Isaías de Lima Gomes - RA 823151518
 *  João Vitor Benjamin  - RA 823133703
