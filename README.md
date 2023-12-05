@@ -6,6 +6,8 @@
 
 ⚛️ JDBC SQLITE - VERSÃO 3.27.2.1 
 
+⚛️ Utilizando Java `Versão 19`
+
 [DOWNLOAD JDBC SQLITE](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc/3.27.2.1)
 
 ⚛️ NOME E RA ALUNOS 
