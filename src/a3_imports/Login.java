@@ -138,7 +138,7 @@ public class Login extends javax.swing.JFrame {
         query = query + " email = '" + email + "'";
         query = query + " AND ";
         query = query + " senha = '" + senha + "';";
-        db.query("SELECT * FROM tb_funcionarios WHERE email= '" + email + "'                                          AND senha= '" + senha + "';" );
+        db.query("SELECT * FROM tb_funcionarios WHERE email= '" + email + "' AND senha= '" + senha + "';" );
               
         if (db.next()) {
             // Usuário encontrado, feche a conexão e retorne true
