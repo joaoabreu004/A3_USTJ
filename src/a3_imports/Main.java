@@ -11,18 +11,28 @@ package a3_imports;
 public class Main {
     public static void main(String[] args) {
         
-        
+        /*
         Carros carroJanela = new Carros(); 
         carroJanela.setVisible(true);
+        */
         
-     
+        /*
+        Funcionarios funcionariosJanelas = new Funcionarios(); 
+        funcionariosJanelas.setVisible(true);
+        */
+        /*
         DB db = new DB("bancodedados.db");
-        db.query("SELECT * FROM tb_carros");
+        db.query("SELECT * FROM tb_funcionarios");
         while(db.next()) {
-            int codigo = db.getInt("codigo");
-            String modelo = db.getString("modelo");
-            System.out.println("CODIGO: "+codigo+" NOME: "+modelo);
+            int codigo = db.getInt("id_funcionarios");
+            String modelo = db.getString("nome");
+            System.out.println("Código: "+codigo+" NOME: "+modelo);
         }
         db.closeConnection();
+        */
+        
+        Login menuLogin = new Login(); 
+        menuLogin.setVisible(true);
+        
     }
 }
