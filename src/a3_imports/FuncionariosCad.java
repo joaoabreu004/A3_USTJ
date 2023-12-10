@@ -1,11 +1,17 @@
 package a3_imports;
 
+import javax.swing.JOptionPane;
+
 public class FuncionariosCad extends javax.swing.JFrame {
 
     private Funcionarios janelaFuncionarios;
     private int codigo;
 
     public FuncionariosCad(Funcionarios janelaFuncionarios, int codigo) {
+
+        this.setSize(800, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
         initComponents();
         this.janelaFuncionarios = janelaFuncionarios;
         this.codigo = codigo;
@@ -159,23 +165,28 @@ public class FuncionariosCad extends javax.swing.JFrame {
         String confirmarSenha = txtConfirmarSenha.getText();
         DB db = new DB("bancodedados.db");
         String query = "";
-        if (codigo == -1) {
-            query = "INSERT INTO tb_funcionarios (nome, email, senha)";
-            query = query + "VALUES (";
-            query = query + "'" + nome + "',";
-            query = query + "'" + email + "',";
-            query = query + "'" + senha + "'";
-            query = query + ");";
-        } else {
-            query = "UPDATE tb_funcionarios SET ";
-            query = query + "nome='" + nome + "', ";
-            query = query + "email='" + email + "', ";
-            query = query + "senha='" + senha + "'";
-            query = query + " WHERE id_funcionarios=" + this.codigo;
+
+        if (validatePassword(senha, confirmarSenha)) {
+            if (codigo == -1) {
+                query = "INSERT INTO tb_funcionarios (nome, email, senha)";
+                query = query + "VALUES (";
+                query = query + "'" + nome + "',";
+                query = query + "'" + email + "',";
+                query = query + "'" + senha + "'";
+                query = query + ");";
+            } else {
+                query = "UPDATE tb_funcionarios SET ";
+                query = query + "nome='" + nome + "', ";
+                query = query + "email='" + email + "', ";
+                query = query + "senha='" + senha + "'";
+                query = query + " WHERE id_funcionarios=" + this.codigo;
+            }
+            db.execQuery(query);
+            janelaFuncionarios.refreshTable();
+            this.dispose();
         }
-        db.execQuery(query);
-        janelaFuncionarios.refreshTable();
-        this.dispose();
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
@@ -186,6 +197,14 @@ public class FuncionariosCad extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtConfirmarSenhaActionPerformed
 
+    private boolean validatePassword(String password, String confirmPassword) {
+        if (password.equals(confirmPassword)) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "As senhas não coincidem!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

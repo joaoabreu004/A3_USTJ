@@ -1,4 +1,3 @@
-
 package a3_imports;
 
 import javax.swing.JOptionPane;
@@ -8,18 +7,22 @@ public class Carros extends javax.swing.JFrame {
     public Carros() {
         initComponents();
         this.setTitle("LISTA DE CARROS");
+
+        this.setSize(800, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
         this.refreshTable();
     }
 
     public void refreshTable() {
         DB db = new DB("bancodedados.db");
         db.query("SELECT * FROM tb_carros");
-        String cols[] = { "CODIGO", "MARCA", "MODELO", "COR", "ANO DE LANÇAMENTO", "PREÇO" };
-        String fields[] = { "codigo", "marca", "modelo", "cor", "ano_lancamento", "preco" };        
+        String cols[] = {"CODIGO", "MARCA", "MODELO", "COR", "ANO DE LANÇAMENTO", "PREÇO"};
+        String fields[] = {"codigo", "marca", "modelo", "cor", "ano_lancamento", "preco"};
         TableRender.render(table, cols, fields, db);
-        db.closeConnection();        
+        db.closeConnection();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -120,38 +123,37 @@ public class Carros extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CarroCad cadastro = new CarroCad(this,-1);
+        CarroCad cadastro = new CarroCad(this, -1);
         cadastro.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int linha = table.getSelectedRow();
-        System.out.println("Linha selecionada: "+linha);
-        if(linha == -1) {
+        System.out.println("Linha selecionada: " + linha);
+        if (linha == -1) {
             JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada. Selecione uma linha!");
             return;
         }
         String codigo = (String) table.getValueAt(linha, 0);
-        System.out.println("Código :"+codigo);
+        System.out.println("Código :" + codigo);
         CarroCad cadastro = new CarroCad(this, Integer.parseInt(codigo));
         cadastro.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
     //OK
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int linha = table.getSelectedRow();
-        System.out.println("Linha selecionada: "+linha);
-        if(linha == -1) {
+        System.out.println("Linha selecionada: " + linha);
+        if (linha == -1) {
             JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada. Selecione uma linha!");
             return;
         }
         String codigo = (String) table.getValueAt(linha, 0);
-        System.out.println("Código :"+codigo);
+        System.out.println("Código :" + codigo);
         DB db = new DB("bancodedados.db");
-        String query = "DELETE FROM tb_carros WHERE codigo="+codigo;
+        String query = "DELETE FROM tb_carros WHERE codigo=" + codigo;
         db.execQuery(query);
         refreshTable();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -159,13 +161,13 @@ public class Carros extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         String modelo = txtBusca.getText();
-        System.out.println("texto da busca: "+ modelo);
+        System.out.println("texto da busca: " + modelo);
         DB db = new DB("bancodedados.db");
         db.query("SELECT * FROM tb_carros WHERE modelo LIKE '%" + modelo + "%'");
-        String cols[] = { "CODIGO", "MARCA", "MODELO", "COR", "ANO DE LANÇAMENTO", "PREÇO" };
-        String fields[] = { "codigo", "marca", "modelo", "cor", "ano_lancamento", "preco" };          
+        String cols[] = {"CODIGO", "MARCA", "MODELO", "COR", "ANO DE LANÇAMENTO", "PREÇO"};
+        String fields[] = {"codigo", "marca", "modelo", "cor", "ano_lancamento", "preco"};
         TableRender.render(table, cols, fields, db);
-        db.closeConnection(); 
+        db.closeConnection();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

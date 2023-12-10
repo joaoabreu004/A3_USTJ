@@ -1,4 +1,3 @@
-
 package a3_imports;
 
 import javax.swing.JOptionPane;
@@ -8,18 +7,22 @@ public class Funcionarios extends javax.swing.JFrame {
     public Funcionarios() {
         initComponents();
         this.setTitle("LISTA DE FUNCIONÁRIOS");
+
+        this.setSize(800, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
         this.refreshTable();
     }
 
     public void refreshTable() {
         DB db = new DB("bancodedados.db");
         db.query("SELECT * FROM tb_funcionarios");
-        String cols[] = { "ID FUNCIONÁRIO", "NOME", "EMAIL", "SENHA" };
-        String fields[] = { "id_funcionarios", "nome", "email", "senha" };        
+        String cols[] = {"ID FUNCIONÁRIO", "NOME", "EMAIL", "SENHA"};
+        String fields[] = {"id_funcionarios", "nome", "email", "senha"};
         TableRender.render(table, cols, fields, db);
-        db.closeConnection();        
+        db.closeConnection();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -120,38 +123,37 @@ public class Funcionarios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        FuncionariosCad cadastro = new FuncionariosCad(this,-1);
+        FuncionariosCad cadastro = new FuncionariosCad(this, -1);
         cadastro.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         int linha = table.getSelectedRow();
-        System.out.println("Linha selecionada: "+linha);
-        if(linha == -1) {
+        System.out.println("Linha selecionada: " + linha);
+        if (linha == -1) {
             JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada. Selecione uma linha!");
             return;
         }
         String codigo = (String) table.getValueAt(linha, 0);
-        System.out.println("Código :"+codigo);
+        System.out.println("Código :" + codigo);
         FuncionariosCad cadastro = new FuncionariosCad(this, Integer.parseInt(codigo));
         cadastro.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    
     //OK
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int linha = table.getSelectedRow();
-        System.out.println("Linha selecionada: "+linha);
-        if(linha == -1) {
+        System.out.println("Linha selecionada: " + linha);
+        if (linha == -1) {
             JOptionPane.showMessageDialog(null, "Nenhuma linha foi selecionada. Selecione uma linha!");
             return;
         }
         String codigo = (String) table.getValueAt(linha, 0);
-        System.out.println("Código :"+codigo);
+        System.out.println("Código :" + codigo);
         DB db = new DB("bancodedados.db");
-        String query = "DELETE FROM tb_funcionarios WHERE id_funcionarios="+codigo;
+        String query = "DELETE FROM tb_funcionarios WHERE id_funcionarios=" + codigo;
         db.execQuery(query);
         refreshTable();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -159,13 +161,13 @@ public class Funcionarios extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         String nome = txtBusca.getText();
-        System.out.println("texto da busca: "+ nome);
+        System.out.println("texto da busca: " + nome);
         DB db = new DB("bancodedados.db");
         db.query("SELECT * FROM tb_funcionarios WHERE nome LIKE '%" + nome + "%'");
-        String cols[] = { "ID Funcionário", "Nome", "Email", "Senha"};
-        String fields[] = { "id_funcionarios", "nome", "email", "senha"};          
+        String cols[] = {"ID Funcionário", "Nome", "Email", "Senha"};
+        String fields[] = {"id_funcionarios", "nome", "email", "senha"};
         TableRender.render(table, cols, fields, db);
-        db.closeConnection(); 
+        db.closeConnection();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

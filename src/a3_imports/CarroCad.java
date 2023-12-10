@@ -7,6 +7,11 @@ public class CarroCad extends javax.swing.JFrame {
 
     public CarroCad(Carros janelaCarro, int codigo) {
         initComponents();
+
+        this.setSize(800, 500);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
+
         this.janelaCarro = janelaCarro;
         this.codigo = codigo;
         if (codigo != -1) {
