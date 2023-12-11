@@ -1,5 +1,6 @@
 package a3_imports;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Funcionarios extends javax.swing.JFrame {
@@ -12,6 +13,7 @@ public class Funcionarios extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null);
         this.refreshTable();
+        
     }
 
     public void refreshTable() {

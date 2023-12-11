@@ -1,5 +1,6 @@
 package a3_imports;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class Carros extends javax.swing.JFrame {
@@ -7,9 +8,9 @@ public class Carros extends javax.swing.JFrame {
     public Carros() {
         initComponents();
         this.setTitle("LISTA DE CARROS");
-
         this.setSize(800, 500);
         this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.refreshTable();
     }

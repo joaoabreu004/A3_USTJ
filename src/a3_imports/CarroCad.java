@@ -1,5 +1,8 @@
 package a3_imports;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 public class CarroCad extends javax.swing.JFrame {
 
     private Carros janelaCarro;
@@ -11,7 +14,7 @@ public class CarroCad extends javax.swing.JFrame {
         this.setSize(800, 500);
         this.setResizable(false);
         this.setLocationRelativeTo(null);
-
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.janelaCarro = janelaCarro;
         this.codigo = codigo;
         if (codigo != -1) {
@@ -182,6 +185,7 @@ public class CarroCad extends javax.swing.JFrame {
             query = query + "'" + anolancamento + "',";
             query = query + "'" + preco + "'";
             query = query + ");";
+            JOptionPane.showMessageDialog(this, "Cadastro Realizado com Sucesso", "Operação Concluída", JOptionPane.PLAIN_MESSAGE);
         } else {
             query = "UPDATE tb_carros SET ";
             query = query + "marca='" + marca + "', ";
@@ -190,6 +194,7 @@ public class CarroCad extends javax.swing.JFrame {
             query = query + "ano_lancamento='" + anolancamento + "', ";
             query = query + "preco='" + preco + "'";
             query = query + " WHERE codigo=" + this.codigo;
+            JOptionPane.showMessageDialog(this, "Alteração Realizada com Sucesso", "Operação Concluída", JOptionPane.PLAIN_MESSAGE);
         }
         db.execQuery(query);
         janelaCarro.refreshTable();

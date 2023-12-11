@@ -1,5 +1,6 @@
 package a3_imports;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class FuncionariosCad extends javax.swing.JFrame {
@@ -168,18 +169,27 @@ public class FuncionariosCad extends javax.swing.JFrame {
 
         if (validatePassword(senha, confirmarSenha)) {
             if (codigo == -1) {
-                query = "INSERT INTO tb_funcionarios (nome, email, senha)";
-                query = query + "VALUES (";
-                query = query + "'" + nome + "',";
-                query = query + "'" + email + "',";
-                query = query + "'" + senha + "'";
-                query = query + ");";
+                if (cadastrar(nome, email, senha)) {
+                    JOptionPane.showMessageDialog(null, "Todos os campos devem ser preenchidos.");
+                } else {
+                    query = "INSERT INTO tb_funcionarios (nome, email, senha)";
+                    query = query + "VALUES (";
+                    query = query + "'" + nome + "',";
+                    query = query + "'" + email + "',";
+                    query = query + "'" + senha + "'";
+                    query = query + ");";
+                    JOptionPane.showMessageDialog(this, "Cadastro Realizado com Sucesso", "Operação Concluída", JOptionPane.PLAIN_MESSAGE);
+                    this.dispose();
+                }
             } else {
                 query = "UPDATE tb_funcionarios SET ";
                 query = query + "nome='" + nome + "', ";
                 query = query + "email='" + email + "', ";
                 query = query + "senha='" + senha + "'";
                 query = query + " WHERE id_funcionarios=" + this.codigo;
+                JOptionPane.showMessageDialog(this, "Alteração Realizada com Sucesso!", "Operação Concluída!", JOptionPane.PLAIN_MESSAGE);
+                this.dispose();
+
             }
             db.execQuery(query);
             janelaFuncionarios.refreshTable();
@@ -205,6 +215,16 @@ public class FuncionariosCad extends javax.swing.JFrame {
             return false;
         }
     }
+
+    public boolean cadastrar(String nome, String email, String telefone) {
+        if (nome == null || email == null || telefone == null) {
+            return true;
+        }
+
+        // Código para cadastrar o usuário
+        return false;
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
