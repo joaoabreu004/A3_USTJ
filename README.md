@@ -1,14 +1,18 @@
 # A3_USTJ
 
-⚛️ Ao testar, na classe A3_imports_panel no atributo "url" alterar o caminho relativo onde se encontra o DB do seu projeto na sua máquina.
+⚛️ Ao testar, na classe DB "url" alterar o caminho relativo onde se encontra o DB do seu projeto na sua máquina.
 
-`String url = "jdbc:sqlite:C:/Users/jvabr/Downloads/a3_imports/a3_imports/src/a3_imports/db_car.db";`
+![image](https://github.com/joaoabreu004/A3_USTJ/assets/76070701/4d50825a-7dc4-4599-b1de-a8d1b4bb9c7a)
 
 ⚛️ JDBC SQLITE - VERSÃO 3.27.2.1 
 
-⚛️ Utilizando Java `Versão 19`
+⚛️ Utilizando Java `Versão 20.0.02`
 
 [DOWNLOAD JDBC SQLITE](https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc/3.27.2.1)
+
+⚛️ Projeto contém: 
+* Login;
+* Cadastro de funcionários e automóveis;
 
 ⚛️ NOME E RA ALUNOS 
 
